@@ -29,10 +29,6 @@ $bp-smallest: 31.25em; // 500px
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-
-  @media only screen and (max-width: $bp-medium) {
-    font-size: 50%;
-  }
 }
 
 body {
@@ -48,7 +44,9 @@ body {
 .container {
   width: 100%;
   min-height: 100svh;
+  // height: 100svh;
   max-width: 140rem;
+  overflow: scroll;
   background-color: #fff;
   overflow: hidden;
   display: grid;

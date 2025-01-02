@@ -1,7 +1,7 @@
 .recipe {
   background-color: $color-grey-light-1;
+  min-height: 100svh;
 
-  ///////////
   // FIGURE
   &__fig {
     height: 32rem;
@@ -10,7 +10,7 @@
     transform-origin: top;
 
     &::before {
-      content: '';
+      content: "";
       display: block;
       height: 100%;
       width: 100%;
@@ -67,6 +67,7 @@
   &__details {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     padding: 7.5rem 8rem 3.5rem 8rem;
   }
 
@@ -75,6 +76,7 @@
     text-transform: uppercase;
     display: flex;
     align-items: center;
+    align-content: center;
 
     &:not(:last-child) {
       margin-right: 4.5rem;
@@ -86,6 +88,7 @@
     width: 2.35rem;
     fill: $color-primary;
     margin-right: 1.15rem;
+    margin-bottom: 0.3rem;
   }
 
   &__info-data {
@@ -159,18 +162,39 @@
   ///////////
   // DIRECTIONS
   &__directions {
-    padding: 5rem 10rem;
+    padding: 5rem 6rem;
     padding-bottom: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 1.6rem;
+    line-height: 1.4;
   }
 
-  &__directions-text {
-    font-size: 1.7rem;
-    text-align: center;
-    margin-bottom: 3.5rem;
-    color: $color-grey-dark-2;
+  &__directions-steps {
+    width: 100%;
+    padding: 2rem 0 4rem 0;
+    font-size: 1.5rem;
+    color: $color-grey-dark-1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem 3rem;
+    list-style: none;
+  }
+
+  &__directions-step {
+    display: flex;
+  }
+
+  &__directions-title {
+    text-transform: uppercase;
+    margin-right: 1rem;
+    flex: 0 0 auto;
+    font-weight: 800;
+    font-size: 1.8rem;
+  }
+  &__directions--description {
+    color: $color-grey-dark-1;
   }
 
   &__publisher {
