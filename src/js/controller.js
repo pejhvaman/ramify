@@ -1,10 +1,12 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import icons from "url:../img/icons.svg";
+import icons from "url:./../img/icons.svg";
 
+const API_URL = "https://www.themealdb.com/api/json/v1/1/";
 const recipeContainer = document.querySelector(".recipe");
-const realNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+const searchInput = document.querySelector(".search__btn");
+const searchField = document.querySelector(".search__field");
+// helpers
 const timeout = function (s) {
   return new Promise(function (_, reject) {
     setTimeout(function () {
@@ -13,15 +15,37 @@ const timeout = function (s) {
   });
 };
 
-const API_URL = "https://www.themealdb.com/api/json/v1/1/";
+// event handlers
+// searchInput.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   const searchQuery = searchField.value;
+//   if (!searchQuery) return;
+//   console.log(searchField.value);
+//   showRecipe(searchQuery);
+//   searchField.value = "";
+//   searchField.blur();
+// });
 
-const showRecipe = async function (mealName) {
+["load", "hashchange"].forEach((ev) => {
+  window.addEventListener(ev, showRecipe);
+});
+
+async function showRecipe() {
   try {
-    const res = await fetch(`${API_URL}search.php?s=${mealName}`);
+    const id = window.location.hash.slice(1);
+    console.log(id);
+    if (!id) return;
+
+    // const res = await fetch(`${API_URL}search.php?s=${mealName}`);
+    const res = await fetch(`${API_URL}lookup.php?i=${id}`);
     if (!res.ok) throw new Error("meal not find!");
+
     const { meals } = await res.json();
+    console.log(meals);
+
     let recipe = meals.at(0);
     console.log(recipe);
+
     recipe = {
       id: recipe.idMeal,
       title: recipe.strMeal,
@@ -146,6 +170,6 @@ const showRecipe = async function (mealName) {
   } catch (err) {
     console.error(err.message);
   }
-};
+}
 
-showRecipe("sushi");
+// showRecipe(53065);
