@@ -6,6 +6,7 @@ const API_URL = "https://www.themealdb.com/api/json/v1/1/";
 const recipeContainer = document.querySelector(".recipe");
 const searchInput = document.querySelector(".search__btn");
 const searchField = document.querySelector(".search__field");
+
 // helpers
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -15,37 +16,54 @@ const timeout = function (s) {
   });
 };
 
+const renderSpinner = function (parentElement) {
+  const markup = `
+          <div class="spinner">
+          <svg>
+            <use href="${icons}#icon-loader"></use>
+          </svg>
+        </div>
+        `;
+
+  parentElement.innerHTML = "";
+  parentElement.insertAdjacentHTML("afterbegin", markup);
+};
+
 // event handlers
-// searchInput.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   const searchQuery = searchField.value;
-//   if (!searchQuery) return;
-//   console.log(searchField.value);
-//   showRecipe(searchQuery);
-//   searchField.value = "";
-//   searchField.blur();
-// });
+searchInput.addEventListener("click", function (e) {
+  e.preventDefault();
+  const searchQuery = searchField.value;
+  if (!searchQuery) return;
+  console.log(searchField.value);
+  showRecipe(searchQuery);
+  searchField.value = "";
+  searchField.blur();
+});
 
 ["load", "hashchange"].forEach((ev) => {
   window.addEventListener(ev, showRecipe);
 });
 
-async function showRecipe() {
+async function showRecipe(query = "") {
   try {
+    renderSpinner(recipeContainer);
     const id = window.location.hash.slice(1);
     console.log(id);
     if (!id) return;
+    let searchUrl = `${API_URL}lookup.php?i=${id}`;
+    if (query !== "" && query.length > 0)
+      searchUrl = `${API_URL}search.php?s=${query}`;
 
-    // const res = await fetch(`${API_URL}search.php?s=${mealName}`);
-    const res = await fetch(`${API_URL}lookup.php?i=${id}`);
+    console.log(searchUrl);
+
+    res = await fetch(searchUrl);
     if (!res.ok) throw new Error("meal not find!");
-
+    // const meals = await res.json();
     const { meals } = await res.json();
     console.log(meals);
 
     let recipe = meals.at(0);
     console.log(recipe);
-
     recipe = {
       id: recipe.idMeal,
       title: recipe.strMeal,
@@ -55,18 +73,21 @@ async function showRecipe() {
       servings: 1, // by default
       instructions: recipe.strInstructions
         .split("\r")
-        .filter((el) => el !== "\n" && el !== "\r"), //FIXME
+        .filter((el) => el !== "\n" && el !== "\r"),
       ingredients: Array.from({ length: 20 }, (_, i) => [
         recipe[`strIngredient${i + 1}`],
         Number.parseFloat(recipe[`strMeasure${i + 1}`]) || "",
-        recipe[`strMeasure${i + 1}`],
+        recipe[`strMeasure${i + 1}`]
+          ? recipe[`strMeasure${i + 1}`]
+              .split("")
+              .filter((el) => !Number.isFinite(+el))
+              .join("")
+          : "",
       ]).filter((el) => el[0] !== "" && el[0] !== null),
     };
-
-    console.log(recipe);
+    // console.log(recipe);
     console.log(recipe.ingredients);
-    console.log(recipe.instructions);
-
+    // console.log(recipe.instructions);
     const markup = `
       <figure class="recipe__fig">
           <img src="${recipe.image}" alt="${
@@ -164,7 +185,6 @@ async function showRecipe() {
           </a>
         </div>
     `;
-
     recipeContainer.innerHTML = "";
     recipeContainer.insertAdjacentHTML("afterbegin", markup);
   } catch (err) {
@@ -172,4 +192,4 @@ async function showRecipe() {
   }
 }
 
-// showRecipe(53065);
+// showRecipe("sushi");
