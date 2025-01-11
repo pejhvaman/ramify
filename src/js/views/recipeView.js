@@ -1,4 +1,4 @@
-import icons from "url:../../img/icons.svg";
+import icons from "url:../../../src/img/icons.svg";
 
 class recipeView {
   _data;
