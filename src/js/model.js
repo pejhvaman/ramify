@@ -1,18 +1,21 @@
-const API_URL = "https://www.themealdb.com/api/json/v1/1/";
+import { SEARCH_BY_ID_URL } from "./config";
+import { SEARCH_BY_QUERY_URL } from "./config";
+import { RES_PER_PAGE } from "./config";
+import { getJson } from "./helpers";
 
 export const state = {
   recipe: {},
+  search: {
+    query: "",
+    page: 1,
+    results: [],
+    resultsPerPage: RES_PER_PAGE,
+  },
 };
 
 export const loadRecipe = async function (id) {
   try {
-    const res = await fetch(`${API_URL}lookup.php?i=${id}`);
-    if (!res.ok)
-      throw new Error(
-        `Meal with id=${id} not found.🔴 ${res.message} (${res.status})`
-      );
-    // const meals = await res.json();
-    const { meals } = await res.json();
+    const { meals } = await getJson(`${SEARCH_BY_ID_URL}${id}`);
     console.log(meals);
     const data = meals.at(0);
     console.log(data);
@@ -39,8 +42,28 @@ export const loadRecipe = async function (id) {
       ]).filter((el) => el[0] !== "" && el[0] !== null),
     };
     console.log(state.recipe);
-    // console.log(state.recipe.ingredients);
-    // console.log(state.recipe.instructions);
+  } catch (err) {
+    console.error(err.message);
+    throw err;
+  }
+};
+
+export const loadSearchResults = async function (query) {
+  try {
+    state.search.query = query;
+    const data = await getJson(`${SEARCH_BY_QUERY_URL}${query}`);
+
+    console.log(data);
+    const { meals } = data;
+
+    state.search.results = meals.map((meal) => {
+      return {
+        id: meal.idMeal,
+        title: meal.strMeal,
+        thumb: meal.strMealThumb,
+        source: meal.strSource,
+      };
+    });
   } catch (err) {
     console.error(err.message);
     throw err;

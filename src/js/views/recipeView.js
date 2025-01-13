@@ -1,8 +1,22 @@
 import icons from "url:../../../src/img/icons.svg";
 
-class recipeView {
-  _data;
+import View from "./view";
+
+class RecipeView extends View {
   _parentElement = document.querySelector(".recipe");
+  _errorMessage = "Recipe not found";
+  _message = "Start by searching for a recipe or an ingredient. Have fun!";
+
+  constructor() {
+    super();
+    this.renderMessage();
+  }
+
+  addHandlerRender(handler) {
+    ["load", "hashchange"].forEach((ev) => {
+      window.addEventListener(ev, handler);
+    });
+  }
 
   render(data) {
     this._data = data;
@@ -60,18 +74,7 @@ class recipeView {
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredient-list">
           ${this._data.ingredients
-            .map((ingredient) => {
-              return `<li class="recipe__ingredient">
-              <svg class="recipe__icon">
-                <use href="${icons}#icon-check"></use>
-              </svg>
-              <div class="recipe__quantity">${ingredient[1]}</div>
-              <div class="recipe__description">
-                <span class="recipe__unit">${ingredient[2]}</span>
-                ${ingredient[0]}
-              </div>
-            </li>`;
-            })
+            .map(this._generateIngredientsMarkup)
             .join("")}
           </ul>
         </div>
@@ -80,22 +83,8 @@ class recipeView {
           <h2 class="heading--2">How to cook it</h2>
           <ul class="recipe__directions-steps">
           ${this._data.instructions
-            .map(
-              (inst) => `<li class="recipe__directions-step">
-              ${
-                inst.length > 10
-                  ? `<svg class="recipe__icon">
-                <use href="${icons}#icon-step"></use>
-              </svg>`
-                  : ""
-              }  
-              <div class="recipe__directions--description">
-                ${inst}
-              </div>
-            </li>`
-            )
+            .map(this._generateInstructionsMarkup)
             .join("")}
-            
           </ul>
           <a
             class="btn--small recipe__btn"
@@ -111,25 +100,33 @@ class recipeView {
     `;
   }
 
-  _clear() {
-    this._parentElement.innerHTML = "";
+  _generateIngredientsMarkup(ingredient) {
+    return `<li class="recipe__ingredient">
+      <svg class="recipe__icon">
+        <use href="${icons}#icon-check"></use>
+      </svg>
+      <div class="recipe__quantity">${ingredient[1]}</div>
+      <div class="recipe__description">
+        <span class="recipe__unit">${ingredient[2]}</span>
+        ${ingredient[0]}
+      </div>
+    </li>`;
   }
 
-  _insertMarkup(markup) {
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-
-  renderSpinner() {
-    const markup = `
-            <div class="spinner">
-              <svg>
-                <use href="${icons}#icon-loader"></use>
-              </svg>
-            </div>
-            `;
-    this._clear();
-    this._insertMarkup(markup);
+  _generateInstructionsMarkup(instruction) {
+    return `<li class="recipe__directions-step">
+    ${
+      instruction.length > 10
+        ? `<svg class="recipe__icon">
+      <use href="${icons}#icon-step"></use>
+    </svg>`
+        : ""
+    }  
+    <div class="recipe__directions--description">
+      ${instruction}
+    </div>
+  </li>`;
   }
 }
 
-export default new recipeView();
+export default new RecipeView();
