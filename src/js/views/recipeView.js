@@ -18,6 +18,18 @@ class RecipeView extends View {
     });
   }
 
+  addHandlerUpdateServings(handler) {
+    this._parentElement.addEventListener("click", function (e) {
+      const btnDec = e.target.closest(".btn--decrease-servings");
+      const btnInc = e.target.closest(".btn--increase-servings");
+      if (!btnDec && !btnInc) return;
+      let newServings;
+      if (btnDec) newServings = +btnDec.value - 1;
+      if (btnInc) newServings = +btnInc.value + 1;
+      handler(newServings);
+    });
+  }
+
   _generateMarkup() {
     return `
       <figure class="recipe__fig">
@@ -39,13 +51,13 @@ class RecipeView extends View {
             <svg class="recipe__info-icon">
               <use href="${icons}#icon-users"></use>
             </svg>
-            <span class="recipe__info-data recipe__info-data--people">${
+            <span class="recipe__info-data recipe__info-data--people recipe__servings">${
               this._data.servings
             }</span>
             <span class="recipe__info-text">servings</span>
 
             <div class="recipe__info-buttons">
-              <button class="btn--tiny btn--increase-servings">
+              <button class="btn--tiny btn--decrease-servings">
                 <svg>
                   <use href="${icons}#icon-minus-circle"></use>
                 </svg>
