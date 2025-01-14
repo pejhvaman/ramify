@@ -1,6 +1,7 @@
 .recipe {
   background-color: $color-grey-light-1;
-  min-height: 100svh;
+  // max-height: 100svh;
+  // overflow-y: scroll;
 
   // FIGURE
   &__fig {

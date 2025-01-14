@@ -43,7 +43,7 @@ body {
 
 .container {
   width: 100%;
-  min-height: 100svh;
+  max-height: fit-content;
   // height: 100svh;
   max-width: 140rem;
   overflow: scroll;

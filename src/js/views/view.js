@@ -3,6 +3,15 @@ import icons from "url:../../../src/img/icons.svg";
 class View {
   _data;
 
+  render(data) {
+    if (!data || (Array.isArray(data) && data.lenght === 0))
+      return this.renderErrorMessage();
+    this._data = data;
+    const markup = this._generateMarkup();
+    this._clear();
+    this._insertMarkup(markup);
+  }
+
   renderErrorMessage(message = this._errorMessage) {
     const markup = this._generateErrorMarkup(message);
     this._clear();

@@ -18,13 +18,6 @@ class RecipeView extends View {
     });
   }
 
-  render(data) {
-    this._data = data;
-    const markup = this._generateMarkup();
-    this._clear();
-    this._insertMarkup(markup);
-  }
-
   _generateMarkup() {
     return `
       <figure class="recipe__fig">
