@@ -11,6 +11,7 @@ export const state = {
     results: [],
     resultsPerPage: RES_PER_PAGE,
   },
+  bookmarks: [],
 };
 
 export const loadRecipe = async function (id) {
@@ -64,6 +65,7 @@ export const loadSearchResults = async function (query) {
         sourceUrl: meal.strYoutube,
       };
     });
+    state.search.page = 1; // to get back to page 1 after every search
   } catch (err) {
     console.error(err.message);
     throw err;
@@ -87,4 +89,9 @@ export const updateServings = function (newServings) {
     ]),
     servings: newServings,
   };
+};
+
+export const addBookmark = function (recipe) {
+  state.bookmarks.push(recipe);
+  console.log(state.bookmarks);
 };

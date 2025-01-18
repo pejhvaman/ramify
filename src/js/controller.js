@@ -49,14 +49,14 @@ async function controlSearchResults() {
 
 function controlPagination(goToPage) {
   const resultsPerPage = model.getSerachResultsPage(goToPage);
-  ResultsView.render(resultsPerPage); //update
+  ResultsView.render(resultsPerPage);
   paginationView.render(model.state.search);
 }
 
 function controlServings(newServings) {
   console.log(newServings);
   model.updateServings(newServings);
-  RecipeView.render(model.state.recipe);
+  RecipeView.update(model.state.recipe); // update
 }
 
 const init = function () {
