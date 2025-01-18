@@ -42,6 +42,12 @@ export const loadRecipe = async function (id) {
           : "",
       ]).filter((el) => el[0] !== "" && el[0] !== null),
     };
+
+    // assume that we already have some bookmarks, so every time we load a recipe we check if that has been bookmarked before or not
+    if (state.bookmarks.some((bm) => bm.id === state.recipe.id))
+      state.recipe.bookmarked = true;
+    else state.recipe.bookmarked = false;
+
     console.log(state.recipe);
   } catch (err) {
     console.error(err.message);
@@ -61,7 +67,7 @@ export const loadSearchResults = async function (query) {
       return {
         id: meal.idMeal,
         title: meal.strMeal,
-        thumb: meal.strMealThumb,
+        image: meal.strMealThumb,
         sourceUrl: meal.strYoutube,
       };
     });
@@ -94,4 +100,6 @@ export const updateServings = function (newServings) {
 export const addBookmark = function (recipe) {
   state.bookmarks.push(recipe);
   console.log(state.bookmarks);
+  state.recipe.bookmarked = true;
+  console.log(state);
 };
