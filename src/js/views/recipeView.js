@@ -20,12 +20,19 @@ class RecipeView extends View {
 
   addHandlerUpdateServings(handler) {
     this._parentElement.addEventListener("click", function (e) {
-      const btnDec = e.target.closest(".btn--decrease-servings");
-      const btnInc = e.target.closest(".btn--increase-servings");
-      if (!btnDec && !btnInc) return;
-      let newServings;
-      if (btnDec) newServings = +btnDec.value - 1;
-      if (btnInc) newServings = +btnInc.value + 1;
+      const btnServings = e.target.closest(".btn__servings");
+      if (!btnServings) return;
+      const currentServings = +this.querySelector(".recipe__info-data--people")
+        .textContent;
+      const newServings = btnServings.classList.contains(
+        "btn__servings--decrease"
+      )
+        ? currentServings > 1
+          ? currentServings - 1
+          : currentServings
+        : currentServings + 1;
+      this.querySelector(".recipe__info-data--people").textContent =
+        newServings;
       handler(newServings);
     });
   }
@@ -57,12 +64,12 @@ class RecipeView extends View {
             <span class="recipe__info-text">servings</span>
 
             <div class="recipe__info-buttons">
-              <button class="btn--tiny btn--decrease-servings">
+              <button class="btn--tiny btn__servings btn__servings--decrease">
                 <svg>
                   <use href="${icons}#icon-minus-circle"></use>
                 </svg>
               </button>
-              <button class="btn--tiny btn--increase-servings">
+              <button class="btn--tiny btn__servings btn__servings--increase">
                 <svg>
                   <use href="${icons}#icon-plus-circle"></use>
                 </svg>
@@ -110,7 +117,7 @@ class RecipeView extends View {
       <svg class="recipe__icon">
         <use href="${icons}#icon-check"></use>
       </svg>
-      <div class="recipe__quantity">${ingredient[1]}</div>
+      <div class="recipe__quantity">${ingredient[1] || ""}</div>
       <div class="recipe__description">
         <span class="recipe__unit">${ingredient[2]}</span>
         ${ingredient[0]}

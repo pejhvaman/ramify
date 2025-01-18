@@ -24,7 +24,7 @@ export const loadRecipe = async function (id) {
       id: data.idMeal,
       title: data.strMeal,
       category: data.strCategory,
-      sourceUrl: data.strSource,
+      sourceUrl: data.strYoutube,
       image: data.strMealThumb,
       servings: 1, // by default
       instructions: data.strInstructions
@@ -61,7 +61,7 @@ export const loadSearchResults = async function (query) {
         id: meal.idMeal,
         title: meal.strMeal,
         thumb: meal.strMealThumb,
-        source: meal.strSource,
+        sourceUrl: meal.strYoutube,
       };
     });
   } catch (err) {
@@ -78,6 +78,13 @@ export const getSerachResultsPage = function (page = state.search.page) {
 };
 
 export const updateServings = function (newServings) {
-  state.recipe = { ...state.recipe, servings: newServings };
-  console.log(state.recipe);
+  state.recipe = {
+    ...state.recipe,
+    ingredients: state.recipe.ingredients.map((ing) => [
+      ing[0],
+      (ing[1] * newServings) / state.recipe.servings,
+      ing[2],
+    ]),
+    servings: newServings,
+  };
 };
