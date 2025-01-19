@@ -12,6 +12,13 @@ class View {
     this._insertMarkup(markup);
   }
 
+  /**
+   * Updates the DOM with an algorithm where it has been changed.
+   * @param {Object} data a recipe object that will update in existed place
+   * @returns {undefined}
+   * @this {Object} View instance
+   * @author Pezhwa Dev
+   */
   update(data) {
     this._data = data;
     const newMarkup = this._generateMarkup();
