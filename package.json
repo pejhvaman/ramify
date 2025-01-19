@@ -2,8 +2,9 @@
   "name": "ramify",
   "version": "1.0.0",
   "description": "find and hold recipes",
+  "default": "index.html",
   "scripts": {
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --dist-dir ./dist",
     "start": "parcel index.html"
   },
   "author": "PezhwaDev",
