@@ -7,7 +7,6 @@ class PreviewView extends View {
 
   _generatePreview(meal) {
     const id = window.location.hash.slice(1);
-    console.log(meal);
     return `
       <li class="preview">
         <a class="preview__link ${

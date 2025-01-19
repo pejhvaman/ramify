@@ -28,7 +28,9 @@ async function controlRecipe() {
 
     ResultsView.update(model.getSerachResultsPage());
 
-    BookmarksView.update(model.state.bookmarks); //
+    BookmarksView.update(model.state.bookmarks);
+
+    console.log(model.state.recipe);
   } catch (err) {
     console.error(err.message);
     RecipeView.renderErrorMessage();
@@ -60,7 +62,6 @@ function controlPagination(goToPage) {
 }
 
 function controlServings(newServings) {
-  console.log(newServings);
   model.updateServings(newServings);
   RecipeView.update(model.state.recipe);
 }
