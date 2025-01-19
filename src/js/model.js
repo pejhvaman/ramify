@@ -99,9 +99,7 @@ export const updateServings = function (newServings) {
 
 export const addBookmark = function (recipe) {
   state.bookmarks.push(recipe);
-  console.log(state.bookmarks);
   state.recipe.bookmarked = true;
-  console.log(state);
 };
 
 export const deleteBookmark = function (id) {
@@ -111,3 +109,18 @@ export const deleteBookmark = function (id) {
   );
   state.recipe.bookmarked = false;
 };
+
+export const storeBookmarks = function () {
+  localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
+};
+
+export const persistBookmarks = function () {
+  const storedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+  if (storedBookmarks) state.bookmarks = storedBookmarks;
+};
+
+const init = function () {
+  persistBookmarks();
+};
+
+init();

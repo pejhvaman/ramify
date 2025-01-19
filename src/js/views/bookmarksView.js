@@ -8,6 +8,10 @@ class BookmarksView extends PreviewView {
     super();
     this.renderMessage();
   }
+
+  addHandlerRender(handler) {
+    window.addEventListener("load", handler);
+  }
 }
 
 export default new BookmarksView();
