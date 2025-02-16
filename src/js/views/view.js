@@ -1,4 +1,4 @@
-import icons from "url:../../public/icons.svg";
+import icons from "url:/icons.svg";
 
 class View {
   _data;
@@ -55,7 +55,9 @@ class View {
     return `<div class="error">
               <div>
                 <svg>
-                  <use href="${icons}#icon-alert-triangle"></use>
+                  <use href="${
+                    new URL(icons, import.meta.url).href
+                  }#icon-alert-triangle"></use>
                 </svg>
               </div>
               <p>${message}</p>
@@ -72,7 +74,9 @@ class View {
     return `<div class="message">
             <div>
               <svg>
-                <use href="${icons}#icon-smile"></use>
+                <use href="${
+                  new URL(icons, import.meta.url).href
+                }#icon-smile"></use>
               </svg>
             </div>
             <p>${message}</p>
@@ -91,7 +95,9 @@ class View {
     const markup = `
             <div class="spinner">
               <svg>
-                <use href="${icons}#icon-loader"></use>
+                <use href="${
+                  new URL(icons, import.meta.url).href
+                }#icon-loader"></use>
               </svg>
             </div>
             `;
