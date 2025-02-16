@@ -1,5 +1,7 @@
-const icons = "/icons.svg";
+const icons = "../../public/icons.svg";
+
 console.log("icons:", icons);
+
 import View from "./view";
 
 class PaginationView extends View {
