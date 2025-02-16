@@ -1,4 +1,4 @@
-import icons from "url:../../../src/img/icons.svg";
+import icons from new URL("../../../src/img/icons.svg", import.meta.url);
 console.log(icons);
 import View from "./view";
 
