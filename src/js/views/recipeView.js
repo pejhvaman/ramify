@@ -58,13 +58,17 @@ class RecipeView extends View {
       <div class="recipe__details">
           <div class="recipe__info">
             <svg class="recipe__info-icon">
-              <use href="${icons}#icon-category"></use>
+              <use href="${
+                new URL(icons, import.meta.url).href
+              }#icon-category"></use>
             </svg>
             <span class="recipe__info-text">${this._data.category}</span>
           </div>
           <div class="recipe__info">
             <svg class="recipe__info-icon">
-              <use href="${icons}#icon-users"></use>
+              <use href="${
+                new URL(icons, import.meta.url).href
+              }#icon-users"></use>
             </svg>
             <span class="recipe__info-data recipe__info-data--people recipe__servings">${
               this._data.servings
@@ -74,19 +78,23 @@ class RecipeView extends View {
             <div class="recipe__info-buttons">
               <button class="btn--tiny btn__servings btn__servings--decrease">
                 <svg>
-                  <use href="${icons}#icon-minus-circle"></use>
+                  <use href="${
+                    new URL(icons, import.meta.url).href
+                  }#icon-minus-circle"></use>
                 </svg>
               </button>
               <button class="btn--tiny btn__servings btn__servings--increase">
                 <svg>
-                  <use href="${icons}#icon-plus-circle"></use>
+                  <use href="${
+                    new URL(icons, import.meta.url).href
+                  }#icon-plus-circle"></use>
                 </svg>
               </button>
             </div>
           </div>
           <button class="btn--round btn__bookmark">
             <svg>
-              <use href="${icons}#icon-bookmark${
+              <use href="${new URL(icons, import.meta.url).href}#icon-bookmark${
       this._data.bookmarked ? "-fill" : ""
     }"></use>
             </svg>
@@ -115,7 +123,9 @@ class RecipeView extends View {
           >
             <span>Directions</span>
             <svg class="search__icon">
-              <use href="${icons}#icon-arrow-right"></use>
+              <use href="${
+                new URL(icons, import.meta.url).href
+              }#icon-arrow-right"></use>
             </svg>
           </a>
         </div>
@@ -125,7 +135,7 @@ class RecipeView extends View {
   _generateIngredientsMarkup(ingredient) {
     return `<li class="recipe__ingredient">
       <svg class="recipe__icon">
-        <use href="${icons}#icon-check"></use>
+        <use href="${new URL(icons, import.meta.url).href}#icon-check"></use>
       </svg>
       <div class="recipe__quantity">${ingredient[1] || ""}</div>
       <div class="recipe__description">
@@ -140,7 +150,7 @@ class RecipeView extends View {
     ${
       instruction.length > 10
         ? `<svg class="recipe__icon">
-      <use href="${icons}#icon-step"></use>
+      <use href="${new URL(icons, import.meta.url).href}#icon-step"></use>
     </svg>`
         : ""
     }  
