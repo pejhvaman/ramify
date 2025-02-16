@@ -1,4 +1,4 @@
-const icons = "../../public/icons.svg";
+import icons from "url:../../public/icons.svg";
 
 console.log("icons:", icons);
 
