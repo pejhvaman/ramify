@@ -1,4 +1,4 @@
-import icons from "url:../../../src/img/icons.svg";
+const icons = "/icons.svg";
 
 import View from "./view";
 
