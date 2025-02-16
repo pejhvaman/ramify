@@ -1,5 +1,5 @@
 import icons from "url:../../../src/img/icons.svg";
-console.log(icons);
+console.log("icons:", icons);
 import View from "./view";
 
 class PaginationView extends View {
