@@ -1,4 +1,4 @@
-import icons from "url:/icons.svg";
+import icons from "url:../../public/icons.svg";
 
 console.log("icons:", icons);
 
@@ -19,9 +19,7 @@ class PaginationView extends View {
             curPage + 1
           }">
             <svg class="search__icon">
-              <use href="${
-                new URL(icons, import.meta.url).href
-              }#icon-arrow-left"></use>
+              <use href="${icons}#icon-arrow-left"></use>
             </svg>
             <span>Page ${curPage + 1}</span>
           </button>`;
@@ -32,9 +30,7 @@ class PaginationView extends View {
           }">
           <span>Page ${curPage - 1}</span>
           <svg class="search__icon">
-            <use href="${
-              new URL(icons, import.meta.url).href
-            }#icon-arrow-right"></use>
+            <use href="${icons}#icon-arrow-right"></use>
           </svg>
            </button>
     `;
@@ -45,18 +41,14 @@ class PaginationView extends View {
           }">
           <span>Page ${curPage - 1}</span>
           <svg class="search__icon">
-            <use href="${
-              new URL(icons, import.meta.url).href
-            }#icon-arrow-right"></use>
+            <use href="${icons}#icon-arrow-right"></use>
           </svg>
           </button>
           <button class="btn--inline pagination__btn--next" data-goto="${
             curPage + 1
           }">
           <svg class="search__icon">
-            <use href="${
-              new URL(icons, import.meta.url).href
-            }#icon-arrow-left"></use>
+            <use href="${icons}#icon-arrow-left"></use>
           </svg>
             <span>Page ${curPage + 1}</span>
           </button>

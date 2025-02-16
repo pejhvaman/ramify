@@ -1,22 +1,23 @@
 {
   "name": "ramify",
   "version": "1.0.0",
-  "description": "find and hold recipes",
+  "description": "Recipe application",
   "default": "index.html",
   "scripts": {
-    "build": "parcel build index.html --dist-dir ./dist",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
   },
-  "author": "PezhwaDev",
+  "author": "Pezhwa Yazdan",
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.13.3",
-    "parcel": "^2.13.3"
+    "parcel": "^2.0.0-beta.1",
+    "sass": "^1.26.10",
+    "svgo": "^3.3.2"
   },
   "dependencies": {
-    "core-js": "^3.39.0",
-    "parcel-plugin-inlinesvg": "^0.1.1",
-    "regenerator-runtime": "^0.14.1",
-    "svgo": "^3.3.2"
+    "core-js": "^3.6.5",
+    "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.13.7"
   }
 }
