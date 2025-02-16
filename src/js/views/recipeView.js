@@ -1,4 +1,4 @@
-import icons from "url:../assets/icons.svg";
+import icons from "url:../../assets/icons.svg";
 
 import View from "./view";
 
