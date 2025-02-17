@@ -1,7 +1,3 @@
-import icons from "url:/public/icons.svg";
-
-// console.log("icons:", icons);
-
 import View from "./view";
 
 class PaginationView extends View {
@@ -18,9 +14,8 @@ class PaginationView extends View {
           <button class="btn--inline pagination__btn--next" data-goto="${
             curPage + 1
           }">
-            <svg class="search__icon">
-              <use href="${icons}#icon-arrow-left"></use>
-            </svg>
+                <span class="icon-emoji">⬅</span>
+
             <span>Page ${curPage + 1}</span>
           </button>`;
     if (curPage === numPage && numPage > 1)
@@ -29,9 +24,8 @@ class PaginationView extends View {
             curPage - 1
           }">
           <span>Page ${curPage - 1}</span>
-          <svg class="search__icon">
-            <use href="${icons}#icon-arrow-right"></use>
-          </svg>
+                <span class="icon-emoji">➡</span>
+         
            </button>
     `;
     if (curPage < numPage && curPage > 1)
@@ -40,16 +34,14 @@ class PaginationView extends View {
             curPage - 1
           }">
           <span>Page ${curPage - 1}</span>
-          <svg class="search__icon">
-            <use href="${icons}#icon-arrow-right"></use>
-          </svg>
+                <span class="icon-emoji">➡</span>
+          
           </button>
           <button class="btn--inline pagination__btn--next" data-goto="${
             curPage + 1
           }">
-          <svg class="search__icon">
-            <use href="${icons}#icon-arrow-left"></use>
-          </svg>
+                <span class="icon-emoji">⬅</span>
+          
             <span>Page ${curPage + 1}</span>
           </button>
     `;

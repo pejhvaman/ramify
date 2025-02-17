@@ -1,5 +1,3 @@
-import icons from "url:/public/icons.svg";
-
 class View {
   _data;
 
@@ -27,7 +25,7 @@ class View {
     const newElements = Array.from(newDOM.querySelectorAll("*"));
     const curElements = Array.from(this._parentElement.querySelectorAll("*"));
 
-    newElements.forEach((newEl, i) => {
+    newElements?.forEach((newEl, i) => {
       const curEl = curElements[i];
 
       if (
@@ -38,7 +36,7 @@ class View {
       }
 
       if (!newEl.isEqualNode(curEl)) {
-        Array.from(newEl.attributes).forEach((attr) =>
+        Array.from(newEl.attributes)?.forEach((attr) =>
           curEl.setAttribute(attr.name, attr.value)
         );
       }
@@ -54,9 +52,7 @@ class View {
   _generateErrorMarkup(message) {
     return `<div class="error">
               <div>
-                <svg>
-                  <use href="${icons}#icon-alert-triangle"></use>
-                </svg>
+              <span class="icon-emoji">⚠</span>
               </div>
               <p>${message}</p>
             </div>`;
@@ -71,9 +67,7 @@ class View {
   _generateMessageMarkup(message) {
     return `<div class="message">
             <div>
-              <svg>
-                <use href="${icons}#icon-smile"></use>
-              </svg>
+            <span class="icon-emoji">🙂</span>
             </div>
             <p>${message}</p>
           </div>`;
@@ -90,9 +84,8 @@ class View {
   renderSpinner() {
     const markup = `
             <div class="spinner">
-              <svg>
-                <use href="${icons}#icon-loader"></use>
-              </svg>
+            <span class="icon-emoji">🌟</span>
+              
             </div>
             `;
     this._clear();
