@@ -72,15 +72,19 @@ function controlAddBookmark() {
   else if (!model.state.recipe.bookmarked)
     model.addBookmark(model.state.recipe);
 
-  RecipeView.update(model.state.recipe);
-  if (model.state.bookmarks.length === 0) return BookmarksView.renderMessage();
-  else if (model.state.bookmarks.length !== 0)
-    BookmarksView.render(model.state.bookmarks);
   model.storeBookmarks();
+
+  RecipeView.update(model.state.recipe);
+
+  if (model.state.bookmarks.length === 0) BookmarksView.renderMessage();
+  if (model.state.bookmarks.length !== 0)
+    BookmarksView.render(model.state.bookmarks);
 }
 
 const controlBookmarks = function () {
-  bookmarksView.render(model.state.bookmarks);
+  if (model.state.bookmarks?.length !== 0)
+    bookmarksView.render(model.state.bookmarks);
+  else bookmarksView.renderErrorMessage();
 };
 
 const init = function () {

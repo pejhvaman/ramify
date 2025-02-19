@@ -45,7 +45,7 @@ export const loadRecipe = async function (id) {
     }; //BUG: some recipes are useing number like 1/2, 1/4 that it is a challenge to update servings with it-- this API is just used to practice and not to build the finall production, in future maybe I will solve this bug😉
 
     // assume that we already have some bookmarks, so every time we load a recipe we check if that has been bookmarked before or not
-    if (state.bookmarks.some((bm) => bm.id === state.recipe.id))
+    if (state.bookmarks?.some((bm) => bm.id === state.recipe.id))
       state.recipe.bookmarked = true;
     else state.recipe.bookmarked = false;
   } catch (err) {
@@ -114,7 +114,7 @@ export const storeBookmarks = function () {
 
 export const persistBookmarks = function () {
   const storedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-  if (storedBookmarks) state.bookmarks = storedBookmarks;
+  if (storedBookmarks?.length !== 0) state.bookmarks = storedBookmarks;
 };
 
 const init = function () {
