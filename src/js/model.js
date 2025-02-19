@@ -115,8 +115,7 @@ export const storeBookmarks = function () {
 
 export const persistBookmarks = function () {
   const storedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-  if (storedBookmarks?.length !== 0) state.bookmarks = storedBookmarks;
-  else state.bookmarks = [];
+  if (storedBookmarks) state.bookmarks = storedBookmarks;
 };
 
 const init = function () {
