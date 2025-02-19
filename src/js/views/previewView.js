@@ -2,7 +2,7 @@ import View from "./view";
 
 class PreviewView extends View {
   _generateMarkup() {
-    return this._data.map(this._generatePreview).join("");
+    return this._data?.map(this._generatePreview).join("");
   }
 
   _generatePreview(meal) {

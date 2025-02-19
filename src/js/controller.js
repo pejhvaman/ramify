@@ -24,13 +24,15 @@ async function controlRecipe() {
 
     await model.loadRecipe(id);
 
+    console.log(model.state.recipe);
+
     RecipeView.render(model.state.recipe);
 
     ResultsView.update(model.getSerachResultsPage());
 
     BookmarksView.update(model.state.bookmarks);
 
-    console.log(model.state.recipe);
+    console.log(model.state.bookmarks);
   } catch (err) {
     console.error(err.message);
     RecipeView.renderErrorMessage();
