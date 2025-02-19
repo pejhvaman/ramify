@@ -27,7 +27,7 @@ class View {
     const newElements = Array.from(newDOM.querySelectorAll("*"));
     const curElements = Array.from(this._parentElement.querySelectorAll("*"));
 
-    newElements.forEach((newEl, i) => {
+    newElements?.forEach((newEl, i) => {
       const curEl = curElements[i];
 
       if (
@@ -38,7 +38,7 @@ class View {
       }
 
       if (!newEl.isEqualNode(curEl)) {
-        Array.from(newEl.attributes).forEach((attr) =>
+        Array.from(newEl.attributes)?.forEach((attr) =>
           curEl.setAttribute(attr.name, attr.value)
         );
       }
