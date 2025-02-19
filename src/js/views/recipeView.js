@@ -1,4 +1,13 @@
-import icons from "../../../public/icons.svg";
+// import icons from "../../../public/icons.svg";
+import categoryIcon from "../../../public/icons/category.svg";
+import servingsIcon from "../../../public/icons/servings.svg";
+import minusIcon from "../../../public/icons/minus.svg";
+import plusIcon from "../../../public/icons/plus.svg";
+import bookmarkIcon from "../../../public/icons/bookmark.svg";
+import bookmarkFillIcon from "../../../public/icons/bookmark-fill.svg";
+import pointerRightIcon from "../../../public/icons/pointer-right.svg";
+import tickIcon from "../../../public/icons/tick.svg";
+import listIcon from "../../../public/icons/list.svg";
 
 import View from "./view";
 
@@ -58,13 +67,13 @@ class RecipeView extends View {
       <div class="recipe__details">
           <div class="recipe__info">
             <svg class="recipe__info-icon">
-              <use xlink:href="${icons}#icon-category"></use>
+              <use xlink:href="${categoryIcon}"></use>
             </svg>
             <span class="recipe__info-text">${this._data.category}</span>
           </div>
           <div class="recipe__info">
             <svg class="recipe__info-icon">
-              <use xlink:href="${icons}#icon-users"></use>
+              <use xlink:href="${servingsIcon}"></use>
             </svg>
             <span class="recipe__info-data recipe__info-data--people recipe__servings">${
               this._data.servings
@@ -74,21 +83,21 @@ class RecipeView extends View {
             <div class="recipe__info-buttons">
               <button class="btn--tiny btn__servings btn__servings--decrease">
                 <svg>
-                  <use xlink:href="${icons}#icon-minus-circle"></use>
+                  <use xlink:href="${minusIcon}"></use>
                 </svg>
               </button>
               <button class="btn--tiny btn__servings btn__servings--increase">
                 <svg>
-                  <use xlink:href="${icons}#icon-plus-circle"></use>
+                  <use xlink:href="${plusIcon}"></use>
                 </svg>
               </button>
             </div>
           </div>
           <button class="btn--round btn__bookmark">
             <svg>
-              <use xlink:href="${icons}#icon-bookmark${
-      this._data.bookmarked ? "-fill" : ""
-    }"></use>
+              <use xlink:href="${
+                this._data.bookmarked ? bookmarkFillIcon : bookmarkIcon
+              }"></use>
             </svg>
           </button>
         </div>
@@ -115,7 +124,7 @@ class RecipeView extends View {
           >
             <span>Directions</span>
             <svg class="search__icon">
-              <use xlink:href="${icons}#icon-arrow-right"></use>
+              <use xlink:href="${pointerRightIcon}"></use>
             </svg>
           </a>
         </div>
@@ -125,7 +134,7 @@ class RecipeView extends View {
   _generateIngredientsMarkup(ingredient) {
     return `<li class="recipe__ingredient">
       <svg class="recipe__icon">
-        <use xlink:href="${icons}#icon-check"></use>
+        <use xlink:href="${tickIcon}"></use>
       </svg>
       <div class="recipe__quantity">${ingredient[1] || ""}</div>
       <div class="recipe__description">
@@ -140,7 +149,7 @@ class RecipeView extends View {
     ${
       instruction.length > 10
         ? `<svg class="recipe__icon">
-      <use xlink:href="${icons}#icon-step"></use>
+      <use xlink:href="${listIcon}"></use>
     </svg>`
         : ""
     }  

@@ -1,4 +1,7 @@
-import icons from "../../../public/icons.svg";
+// import icons from "../../../public/icons.svg";
+import dangerIcon from "../../../public/icons/danger.svg";
+import smileIcon from "../../../public/icons/smile.svg";
+import loadingIcon from "../../../public/icons/loading.svg";
 
 class View {
   _data;
@@ -55,7 +58,7 @@ class View {
     return `<div class="error">
               <div>
                 <svg>
-                  <use xlink:href="${icons}#icon-alert-triangle"></use>
+                  <use xlink:href="${dangerIcon}"></use>
                 </svg>
               </div>
               <p>${message}</p>
@@ -72,7 +75,7 @@ class View {
     return `<div class="message">
             <div>
               <svg>
-                <use xlink:href="${icons}#icon-smile"></use>
+                <use xlink:href="${smileIcon}"></use>
               </svg>
             </div>
             <p>${message}</p>
@@ -91,7 +94,7 @@ class View {
     const markup = `
             <div class="spinner">
               <svg>
-                <use xlink:href="${icons}#icon-loader"></use>
+                <use xlink:href="${loadingIcon}"></use>
               </svg>
             </div>
             `;

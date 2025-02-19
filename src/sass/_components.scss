@@ -109,7 +109,6 @@
   // margin-left: auto;
   margin-bottom: 0.3rem;
   transition: all 0.2s;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,7 +124,11 @@
   svg {
     height: 2.5rem;
     width: 2.5rem;
-    fill: #fff;
+    color: #fefefe !important;
+
+    use {
+      color: #fefefe !important;
+    }
   }
 }
 
