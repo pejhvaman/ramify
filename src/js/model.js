@@ -110,12 +110,13 @@ export const deleteBookmark = function (id) {
 };
 
 export const storeBookmarks = function () {
-  localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
+  localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks ?? []));
 };
 
 export const persistBookmarks = function () {
   const storedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
   if (storedBookmarks?.length !== 0) state.bookmarks = storedBookmarks;
+  else state.bookmarks = [];
 };
 
 const init = function () {

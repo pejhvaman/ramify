@@ -69,10 +69,11 @@ function controlServings(newServings) {
 }
 
 function controlAddBookmark() {
-  if (model.state.recipe.bookmarked)
+  if (model.state.recipe.bookmarked) {
     model.deleteBookmark(model.state.recipe.id);
-  else if (!model.state.recipe.bookmarked)
+  } else if (!model.state.recipe.bookmarked) {
     model.addBookmark(model.state.recipe);
+  }
 
   model.storeBookmarks();
 
@@ -84,6 +85,7 @@ function controlAddBookmark() {
 }
 
 const controlBookmarks = function () {
+  model.storeBookmarks();
   if (model.state.bookmarks?.length !== 0)
     bookmarksView.render(model.state.bookmarks);
   else bookmarksView.renderErrorMessage();
