@@ -4,7 +4,7 @@ Find and hold recipes.
 
 💠More Features that I will implement:
 
-1. Ingredients amount when they are fractional like 1/2 in string!
+1. Fix ingredients amount when they are fractional strings, like '1/2'
 2. Display the number of pages between the pagination buttons.
 3. Ability to sort search results by number of ingredients or alphabetically
 4. Shopping list feature: a button to add ingredients to a list
