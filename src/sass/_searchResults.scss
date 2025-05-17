@@ -1,3 +1,5 @@
+@use "./variables" as variables;
+
 .search-results {
   padding: 0 0 3rem 0;
   display: flex;
@@ -31,13 +33,13 @@
 }
 
 .copyright {
-  color: $color-grey-dark-2;
+  color: variables.$color-grey-dark-2;
   font-size: 1.2rem;
   padding: 0 2rem;
   margin-top: auto;
 
   .twitter-link:link,
   .twitter-link:visited {
-    color: $color-grey-dark-2;
+    color: variables.$color-grey-dark-2;
   }
 }
