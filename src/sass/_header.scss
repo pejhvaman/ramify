@@ -1,6 +1,8 @@
+@use "./variables" as variables;
+
 .header {
   grid-area: head;
-  background-color: $color-grey-light-1;
+  background-color: variables.$color-grey-light-1;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -9,14 +11,14 @@
     margin: 0 1rem;
     height: 4.6rem;
     display: block;
-    @media only screen and (max-width: $bp-small) {
+    @media only screen and (max-width: variables.$bp-small) {
       height: 3.4rem;
     }
   }
-  @media only screen and (min-width: $bp-medium) {
+  @media only screen and (min-width: variables.$bp-medium) {
     padding: 0 4rem;
   }
-  @media only screen and (min-width: $bp-small) {
+  @media only screen and (min-width: variables.$bp-small) {
     justify-content: space-between;
   }
 }
@@ -30,7 +32,7 @@
 
   &:focus-within {
     transform: translateY(-2px);
-    box-shadow: 0 0.7rem 3rem rgba($color-grey-dark-1, 0.08);
+    box-shadow: 0 0.7rem 3rem rgba(variables.$color-grey-dark-1, 0.08);
   }
 
   &__field {
@@ -46,20 +48,20 @@
     }
 
     &::placeholder {
-      color: $color-grey-light-3;
+      color: variables.$color-grey-light-3;
     }
 
-    @media only screen and (max-width: $bp-small) {
+    @media only screen and (max-width: variables.$bp-small) {
       padding-left: 1.5rem;
       width: 12rem;
       &::placeholder {
         color: white;
       }
     }
-    @media only screen and (min-width: $bp-small) {
+    @media only screen and (min-width: variables.$bp-small) {
       padding-left: 3rem;
     }
-    @media only screen and (max-width: $bp-medium) {
+    @media only screen and (max-width: variables.$bp-medium) {
       &::placeholder {
         font-size: 1.2rem;
       }
@@ -107,7 +109,7 @@
       margin-right: 0.4rem;
       height: 3rem;
       width: 3rem;
-      fill: $color-primary;
+      fill: variables.$color-primary;
       transform: translateY(-1px);
     }
 
@@ -121,17 +123,17 @@
     }
 
     &:hover {
-      background-color: $color-grey-light-2;
+      background-color: variables.$color-grey-light-2;
     }
 
-    @media only screen and (max-width: $bp-medium) {
+    @media only screen and (max-width: variables.$bp-medium) {
       font-size: 1rem;
       padding: 0.6rem 1.2rem;
       span {
         display: none;
       }
     }
-    @media only screen and (min-width: $bp-medium) {
+    @media only screen and (min-width: variables.$bp-medium) {
       margin-left: 1rem;
     }
   }
@@ -145,7 +147,7 @@
   z-index: 10;
   width: 40rem;
   background-color: #fff;
-  box-shadow: 0 0.8rem 5rem 2rem rgba($color-grey-dark-1, 0.1);
+  box-shadow: 0 0.8rem 5rem 2rem rgba(variables.$color-grey-dark-1, 0.1);
 
   visibility: hidden;
   opacity: 0;
@@ -165,7 +167,7 @@
     transition: all 0.3s;
 
     &:hover {
-      background-color: $color-grey-light-2;
+      background-color: variables.$color-grey-light-2;
     }
   }
 

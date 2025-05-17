@@ -1,3 +1,5 @@
+@use "./variables" as variables;
+
 .preview {
   &__link {
     &:link,
@@ -11,12 +13,12 @@
     }
 
     &:hover {
-      background-color: $color-grey-light-1;
+      background-color: variables.$color-grey-light-1;
       transform: translateY(-2px);
     }
 
     &--active {
-      background-color: $color-grey-light-1;
+      background-color: variables.$color-grey-light-1;
     }
   }
 
@@ -39,8 +41,8 @@
       left: 0;
       background-image: linear-gradient(
         to right bottom,
-        $color-grad-1,
-        $color-grad-2
+        variables.$color-grad-1,
+        variables.$color-grad-2
       );
       opacity: 0.4;
     }
@@ -65,7 +67,7 @@
   &__title {
     grid-column: 1/-1;
     font-size: 1.45rem;
-    color: $color-primary;
+    color: variables.$color-primary;
     text-transform: uppercase;
     font-weight: 600;
 
