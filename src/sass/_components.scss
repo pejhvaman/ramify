@@ -63,6 +63,11 @@
       width: 1.75rem;
       fill: currentColor;
     }
+
+    @media only screen and (max-width: variables.$bp-medium) {
+      padding: 0.6rem 1.2rem;
+      font-size: inherit;
+    }
   }
 }
 
