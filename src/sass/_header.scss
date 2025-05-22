@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 0 0.5rem;
+  padding: 0 4rem;
   &__logo {
     margin: 0 1rem;
     height: 4.6rem;
@@ -16,7 +16,7 @@
     }
   }
   @media only screen and (min-width: variables.$bp-medium) {
-    padding: 0 4rem;
+    padding: 0 6rem;
   }
   @media only screen and (min-width: variables.$bp-small) {
     justify-content: space-between;
@@ -25,13 +25,14 @@
 
 .menu-btn {
   display: inline-block;
-  width: 3rem;
-  height: 3rem;
+  // width: 3rem;
+  // height: 3rem;
   border-radius: 50%;
   display: grid;
   padding: 0;
   display: grid;
   place-items: center;
+  font-size: 3rem;
 
   @media only screen and (min-width: variables.$bp-medium) {
     display: none;
@@ -93,18 +94,20 @@
 
 .nav {
   align-self: center;
+  height: 100%;
 
   &__list {
     list-style: none;
     display: flex;
+    height: 100%;
   }
 
   &__item {
     position: relative;
+    height: 100%;
   }
 
   &__btn {
-    padding: 1rem 3rem;
     font-family: inherit;
     color: inherit;
     font-size: 1.4rem;
@@ -114,16 +117,20 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s;
-    border-radius: 100px;
 
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 
+    &--bookmarks {
+      height: 100%;
+    }
+
     svg {
       margin-top: 0.2rem;
       margin-right: 0.4rem;
+      height: 100%;
       width: 1.4rem;
       fill: variables.$color-primary;
       transform: translateY(-1px);
@@ -148,7 +155,6 @@
 
     @media only screen and (max-width: variables.$bp-medium) {
       font-size: 1rem;
-      padding: 0.6rem 1.2rem;
       span {
         display: none;
       }
@@ -160,7 +166,6 @@
 }
 
 .bookmarks {
-  padding: 1rem 0;
   position: absolute;
   // right: 0;
   right: -2.5rem;

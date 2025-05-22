@@ -6,10 +6,9 @@ import SearchView from "./views/searchView";
 import ResultsView from "./views/resultsView";
 import PaginationView from "./views/paginationView";
 import BookmarksView from "./views/bookmarksView";
+import MenuBtnView from "./views/menuBtnView";
 
 import * as model from "./model";
-import paginationView from "./views/paginationView";
-import bookmarksView from "./views/bookmarksView";
 
 // if (module.hot) {
 //   module.hot.accept();
@@ -51,6 +50,9 @@ async function controlSearchResults() {
     ResultsView.render(model.getSerachResultsPage());
 
     PaginationView.render(model.state.search);
+
+    MenuBtnView.toggleList("show");
+    model.toggleResultsVisibility("visible");
   } catch (err) {
     console.error(err.message);
     ResultsView.renderErrorMessage();
@@ -87,8 +89,22 @@ function controlAddBookmark() {
 const controlBookmarks = function () {
   model.storeBookmarks();
   if (model.state.bookmarks?.length !== 0)
-    bookmarksView.render(model.state.bookmarks);
-  else bookmarksView.renderErrorMessage();
+    BookmarksView.render(model.state.bookmarks);
+  else BookmarksView.renderErrorMessage();
+};
+
+const controlMenuBtn = function () {
+  if (model.state.search.visibility === "hidden") {
+    //show the list
+    console.log("show list");
+    MenuBtnView.toggleList("show");
+    model.toggleResultsVisibility("visible");
+  } else {
+    // hide the list
+    console.log("hide list");
+    MenuBtnView.toggleList("hide");
+    model.toggleResultsVisibility("hidden");
+  }
 };
 
 const init = function () {
@@ -98,6 +114,7 @@ const init = function () {
   SearchView.addHandlerSearch(controlSearchResults);
   PaginationView.addHandlerPagination(controlPagination);
   BookmarksView.addHandlerRender(controlBookmarks);
+  MenuBtnView.addHandlerToggleList(controlMenuBtn);
 };
 
 init();

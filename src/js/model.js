@@ -8,6 +8,7 @@ import { getJson } from "./helpers";
 export const state = {
   recipe: {},
   search: {
+    visibility: "",
     query: "",
     page: 1,
     results: [],
@@ -58,7 +59,7 @@ export const loadRecipe = async function (id) {
 export const loadSearchResults = async function (query) {
   try {
     state.search.query = query;
-    const data = await getJson(`${SEARCH_BY_QUERY_URL}${query}`);
+    const data = await getJson(`${SEARCH_BY_QUERY_URL}${query[0]}`); // This API supports searching maels only by first letter!
 
     const { meals } = data;
 
@@ -71,6 +72,8 @@ export const loadSearchResults = async function (query) {
       };
     });
     state.search.page = 1; // to get back to page 1 after every search
+
+    state.search.visibility = "visible";
   } catch (err) {
     console.error(err.message);
     throw err;
@@ -116,6 +119,10 @@ export const storeBookmarks = function () {
 export const persistBookmarks = function () {
   const storedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
   if (storedBookmarks) state.bookmarks = storedBookmarks;
+};
+
+export const toggleResultsVisibility = function (visibility) {
+  state.search.visibility = visibility;
 };
 
 const init = function () {
