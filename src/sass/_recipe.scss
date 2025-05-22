@@ -3,14 +3,12 @@
 
 .recipe {
   background-color: variables.$color-grey-light-1;
-  // max-height: 100svh;
-  // overflow-y: scroll;
+  min-height: 100vh;
 
   // FIGURE
   &__fig {
-    height: 32rem;
+    height: 30rem;
     position: relative;
-    // transform: scale(1.04) translateY(-1px);
     transform-origin: top;
 
     &::before {
@@ -61,9 +59,9 @@
       );
     }
 
-    @media only screen and (max-width: variables.$bp-medium) {
-      width: 70%;
-    }
+    // @media only screen and (max-width: variables.$bp-medium) {
+    //   width: 100%;
+    // }
   }
 
   ///////////
@@ -176,11 +174,12 @@
     align-items: center;
     font-size: 1.6rem;
     line-height: 1.4;
+    background-color: variables.$color-grey-light-1;
   }
 
   &__directions-steps {
     width: 100%;
-    padding: 2rem 0 4rem 0;
+    // padding: 2rem 0 4rem 0;
     font-size: 1.5rem;
     color: variables.$color-grey-dark-1;
     display: grid;
@@ -206,5 +205,9 @@
 
   &__publisher {
     font-weight: 700;
+  }
+
+  & .recipe__btn {
+    margin-top: 2rem;
   }
 }

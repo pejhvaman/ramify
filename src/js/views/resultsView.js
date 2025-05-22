@@ -7,7 +7,7 @@ class ResultsView extends PreviewView {
 
   constructor() {
     super();
-    this.renderMessage();
+    this.renderErrorMessage(this._message);
   }
 }
 

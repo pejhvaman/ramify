@@ -14,7 +14,7 @@ import View from "./view";
 class RecipeView extends View {
   _parentElement = document.querySelector(".recipe");
   _errorMessage = "Recipe not found";
-  _message = "You have to start to search. Have fun!";
+  _message = "Search & Have fun!";
 
   constructor() {
     super();
