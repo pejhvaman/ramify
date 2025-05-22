@@ -6,11 +6,20 @@
     &:visited {
       display: flex;
       align-items: center;
-      padding: 1.5rem 3.25rem;
+      padding: 1.5rem 2.5rem;
       transition: all 0.3s;
       text-decoration: none;
-      width: 70%;
+      width: 100%;
       margin: 0 auto;
+
+      @media only screen and (max-width: variables.$bp-medium) {
+        width: 60%;
+        padding: 1.5rem 3.5rem;
+      }
+      @media only screen and (max-width: variables.$bp-small) {
+        width: 90%;
+        padding: 1.5rem 3.5rem;
+      }
     }
 
     &:hover {
@@ -57,13 +66,13 @@
     }
   }
 
-  &__data {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 2rem;
-    row-gap: 0.1rem;
-    align-items: center;
-  }
+  // &__data {
+  //   display: grid;
+  //   width: 100%;
+  //   grid-template-columns: 1fr 2rem;
+  //   row-gap: 0.1rem;
+  //   align-items: center;
+  // }
 
   &__title {
     font-size: 1.45rem;

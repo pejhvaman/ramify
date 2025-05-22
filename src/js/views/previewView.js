@@ -15,9 +15,7 @@ class PreviewView extends View {
           <figure class="preview__fig">
               <img src="${meal.image}" alt="Photo" />
           </figure>
-          <div class="preview__data">
-            <h4 class="preview__title">${meal.title}</h4>
-          </div>
+          <h4 class="preview__title">${meal.title}</h4>
         </a>
       </li>`;
   }
