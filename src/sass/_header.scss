@@ -57,7 +57,8 @@
     font-family: inherit;
     color: inherit;
     font-size: 1.7rem;
-    width: 6rem;
+    width: 12rem;
+    padding-left: 2rem;
 
     &:focus {
       outline: none;
@@ -117,6 +118,7 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s;
+    padding: 0 1rem;
 
     display: flex;
     flex-wrap: wrap;
@@ -128,15 +130,13 @@
     }
 
     svg {
-      margin-top: 0.2rem;
-      margin-right: 0.4rem;
       height: 100%;
       width: 1.4rem;
       fill: variables.$color-primary;
-      transform: translateY(-1px);
 
       @media (min-width: 768px) {
         width: 2rem;
+        margin-right: 1rem;
       }
     }
 

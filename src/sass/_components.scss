@@ -217,6 +217,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 
   svg {
     height: 2rem;
@@ -231,6 +232,7 @@
     line-height: 1.5;
     font-weight: 600;
   }
+
   @media only screen and (min-width: variables.$bp-medium) {
     svg {
       height: 4rem;
