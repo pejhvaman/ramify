@@ -6,7 +6,9 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 0 4rem;
+  // padding: 0 4rem;
+  // width: 100%;
+
   &__logo {
     margin: 0 1rem;
     height: 4.6rem;
@@ -16,7 +18,7 @@
     }
   }
   @media only screen and (min-width: variables.$bp-medium) {
-    padding: 0 6rem;
+    // padding: 0 6rem;
   }
   @media only screen and (min-width: variables.$bp-small) {
     justify-content: space-between;
