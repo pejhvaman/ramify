@@ -62,7 +62,7 @@ async function controlSearchResults() {
 function controlPagination(goToPage) {
   const resultsPerPage = model.getSerachResultsPage(goToPage);
   ResultsView.render(resultsPerPage);
-  paginationView.render(model.state.search);
+  PaginationView.render(model.state.search);
 }
 
 function controlServings(newServings) {

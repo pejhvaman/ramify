@@ -68,26 +68,26 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 4rem;
+    // padding: 3rem 0;
   }
 
   &__info {
-    font-size: 1.65rem;
+    font-size: 1.35rem;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     align-content: center;
 
     &:not(:last-child) {
-      margin-right: 4.5rem;
+      margin-right: 0.5rem;
     }
   }
 
   &__info-icon {
-    height: 2.35rem;
-    width: 2.35rem;
+    height: 2rem;
+    width: 2rem;
     fill: variables.$color-primary;
-    margin-right: 1.15rem;
+    margin-right: 0.7rem;
     margin-bottom: 0.3rem;
   }
 
@@ -99,36 +99,12 @@
   &__info-buttons {
     display: flex;
     margin-left: 1.6rem;
-    transform: translateY(-1px);
-  }
-
-  &__user-generated {
-    background-color: color.adjust(
-      variables.$color-grey-light-2,
-      $lightness: 2%
-    );
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 4rem;
-    width: 4rem;
-    border-radius: 10rem;
-
-    margin-left: auto;
-    margin-right: 1.75rem;
-
-    svg {
-      height: 2.25rem;
-      width: 2.25rem;
-      fill: variables.$color-primary;
-    }
   }
 
   ///////////
   // INGREDIENTS
   &__ingredients {
-    padding: 4rem;
+    // padding: 4rem;
     font-size: 1.6rem;
     line-height: 1.4;
     background-color: variables.$color-grey-light-2;
@@ -169,7 +145,7 @@
   ///////////
   // DIRECTIONS
   &__directions {
-    padding: 5rem 6rem;
+    // padding: 5rem 6rem;
     padding-bottom: 5rem;
     display: flex;
     flex-direction: column;
