@@ -27,6 +27,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   overflow-x: hidden;
+  // filter: invert(1);
 
   @media only screen and (max-width: variables.$bp-medium) {
     padding: 0;
@@ -53,8 +54,4 @@ body {
       "list"
       "recipe";
   }
-}
-
-.icon-emoji {
-  font-size: 1.8rem;
 }

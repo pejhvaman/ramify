@@ -10,14 +10,14 @@
       transition: all 0.3s;
       text-decoration: none;
       width: 100%;
-      margin: 0 auto;
+      gap: 1rem;
 
       @media only screen and (max-width: variables.$bp-medium) {
-        width: 60%;
+        width: 100%;
         padding: 1.5rem 3.5rem;
       }
       @media only screen and (max-width: variables.$bp-small) {
-        width: 90%;
+        width: 100%;
         padding: 1.5rem 3.5rem;
       }
     }

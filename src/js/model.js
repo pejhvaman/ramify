@@ -8,7 +8,7 @@ import { getJson } from "./helpers";
 export const state = {
   recipe: {},
   search: {
-    visibility: "",
+    visibility: "hidden",
     query: "",
     page: 1,
     results: [],
