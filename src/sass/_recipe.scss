@@ -3,7 +3,6 @@
 
 .recipe {
   background-color: variables.$color-grey-light-1;
-  min-height: 100vh;
   max-width: 100%;
   width: 100%;
   overflow: hidden;
@@ -45,11 +44,15 @@
     transform: translate(-50%, 20%) skewY(-6deg);
     color: #fff;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.7rem;
     text-transform: uppercase;
     width: 50%;
     line-height: 1.95;
     text-align: center;
+
+    @media only screen and (min-width: variables.$bp-small) {
+      font-size: 3rem;
+    }
 
     span {
       -webkit-box-decoration-break: clone;
@@ -79,17 +82,25 @@
     align-items: center;
     align-content: center;
 
+    @media only screen and (min-width: variables.$bp-small) {
+      font-size: 2rem;
+    }
+
     &:not(:last-child) {
       margin-right: 0.5rem;
     }
   }
 
   &__info-icon {
-    height: 2rem;
-    width: 2rem;
+    height: 2.6rem;
+    width: 2.6rem;
     fill: variables.$color-primary;
     margin-right: 0.7rem;
     margin-bottom: 0.3rem;
+    display: none;
+    @media only screen and (min-width: variables.$bp-small) {
+      display: inline-block;
+    }
   }
 
   &__info-data {
@@ -105,7 +116,8 @@
   ///////////
   // INGREDIENTS
   &__ingredients {
-    // padding: 4rem;
+    padding: 1rem;
+    padding-bottom: 3rem;
     font-size: 1.6rem;
     line-height: 1.4;
     background-color: variables.$color-grey-light-2;
@@ -116,17 +128,32 @@
     @media only screen and (min-width: variables.$bp-small) {
       padding: 4rem 6rem;
     }
+    @media only screen and (min-width: variables.$bp-medium) {
+      font-size: 2rem;
+    }
   }
 
   &__ingredient-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem 3rem;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
     list-style: none;
+
+    @media only screen and (min-width: variables.$bp-small) {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem 3rem;
+    }
   }
 
   &__ingredient {
     display: flex;
+    word-spacing: 4px;
+    text-transform: uppercase;
+
+    @media only screen and (min-width: variables.$bp-small) {
+      word-spacing: normal;
+      text-transform: none;
+    }
   }
 
   &__icon {
@@ -141,25 +168,30 @@
   &__quantity {
     margin-right: 0.5rem;
     flex: 0 0 auto;
+    text-decoration: underline;
   }
 
   ///////////
   // DIRECTIONS
   &__directions {
-    // padding: 5rem 6rem;
-    padding-bottom: 5rem;
+    padding: 1rem 2rem;
+    padding-bottom: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 1.6rem;
     line-height: 1.4;
     background-color: variables.$color-grey-light-1;
+
+    @media only screen and (min-width: variables.$bp-small) {
+      padding: 5rem 6rem;
+      font-size: 2rem;
+    }
   }
 
   &__directions-steps {
     width: 100%;
     // padding: 2rem 0 4rem 0;
-    font-size: 1.5rem;
     color: variables.$color-grey-dark-1;
     display: grid;
     grid-template-columns: 1fr;
@@ -188,5 +220,13 @@
 
   & .recipe__btn {
     margin-top: 2rem;
+
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+
+    @media only screen and (min-width: variables.$bp-small) {
+      padding: 1.7rem 3.2rem;
+      font-size: 2rem;
+    }
   }
 }
