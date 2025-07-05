@@ -5,6 +5,7 @@
   background-color: variables.$color-grey-light-1;
   min-height: 100vh;
   max-width: 100%;
+  width: 100%;
   overflow: hidden;
 
   // FIGURE
@@ -44,7 +45,7 @@
     transform: translate(-50%, 20%) skewY(-6deg);
     color: #fff;
     font-weight: 700;
-    font-size: 3.25rem;
+    font-size: 2rem;
     text-transform: uppercase;
     width: 50%;
     line-height: 1.95;
@@ -68,7 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    // padding: 3rem 0;
+    padding: 5rem 0;
   }
 
   &__info {
