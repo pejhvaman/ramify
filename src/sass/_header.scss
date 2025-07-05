@@ -55,6 +55,7 @@
 
   @media only screen and (min-width: variables.$bp-small) {
     width: 40rem;
+    padding: 1rem 0;
   }
   @media only screen and (min-width: variables.$bp-medium) {
     padding: 1.2rem 0;
@@ -73,6 +74,12 @@
     color: inherit;
     font-size: 1.7rem;
     padding-left: 2rem;
+    width: 80%;
+
+    &::placeholder {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+    }
 
     &:focus {
       outline: none;
@@ -89,11 +96,11 @@
       padding-left: 3rem;
     }
 
-    @media only screen and (max-width: variables.$bp-medium) {
-      &::placeholder {
-        font-size: 1.2rem;
-      }
-    }
+    // @media only screen and (max-width: variables.$bp-medium) {
+    //   &::placeholder {
+    //     font-size: 1.2rem;
+    //   }
+    // }
   }
 
   &__btn {
@@ -102,16 +109,19 @@
     position: absolute;
     right: 0;
     height: 100%;
+    padding-inline: 3rem;
+  }
+
+  &__icon {
+    margin-top: 0 !important;
   }
 }
 
 .nav {
-  align-self: center;
   height: 4rem;
 
   @media only screen and (min-width: variables.$bp-small) {
     height: 4rem;
-    // width: 40rem;
   }
 
   &__list {
@@ -196,7 +206,7 @@
   width: 20rem;
   background-color: #ffffff;
   box-shadow: 0 0.8rem 5rem 2rem rgba(variables.$color-grey-dark-1, 0.1);
-
+  width: 30rem;
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s 0.2s;
