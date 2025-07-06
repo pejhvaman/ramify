@@ -107,7 +107,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
-    min-width: 10rem;
+    // min-width: 10rem;
 
     @media only screen and (min-width: variables.$bp-medium) {
       min-width: 16rem;
@@ -157,7 +157,7 @@
     gap: 0.5rem;
 
     @media only screen and (max-width: variables.$bp-medium) {
-      min-width: 10rem;
+      // min-width: 10rem;
       font-size: 1rem;
       height: 4rem;
       width: 4rem;
