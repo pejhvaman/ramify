@@ -7,7 +7,8 @@ class ResultsView extends PreviewView {
 
   constructor() {
     super();
-    this.renderErrorMessage(this._message);
+    console.log(this._parentElement);
+    if (this._parentElement) this.renderErrorMessage(this._message);
   }
 }
 
