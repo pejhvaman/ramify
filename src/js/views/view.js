@@ -1,13 +1,16 @@
-// import icons from "../../../public/icons.svg";
-import dangerIcon from "../../../public/icons/danger.svg";
-import smileIcon from "../../../public/icons/smile.svg";
-import loadingIcon from "../../../public/icons/loading.svg";
+const dangerIcon = new URL("../../assets/icons/danger.svg", import.meta.url)
+  .href;
+
+const smileIcon = new URL("../../assets/icons/smile.svg", import.meta.url).href;
+
+const loadingIcon = new URL("../../assets/icons/loading.svg", import.meta.url)
+  .href;
 
 class View {
   _data;
 
   render(data) {
-    if (!data || (Array.isArray(data) && data.lenght === 0))
+    if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderErrorMessage();
     this._data = data;
     const markup = this._generateMarkup();
@@ -83,12 +86,23 @@ class View {
   }
 
   _clear() {
-    // if (!this._parentElement) return;
+    if (!this._parentElement) {
+      console.warn(
+        "⚠️ _parentElement is not defined in subclass or not found."
+      );
+      return;
+    }
     this._parentElement.innerHTML = "";
   }
 
   _insertMarkup(markup) {
-    this._parentElement?.insertAdjacentHTML("afterbegin", markup);
+    if (!this._parentElement) {
+      console.warn(
+        "⚠️ _parentElement is not defined in subclass or not found."
+      );
+      return;
+    }
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   renderSpinner() {

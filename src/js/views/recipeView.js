@@ -1,25 +1,38 @@
-// import icons from "../../../public/icons.svg";
-import categoryIcon from "../../../public/icons/category.svg";
-import servingsIcon from "../../../public/icons/servings.svg";
-import minusIcon from "../../../public/icons/minus.svg";
-import plusIcon from "../../../public/icons/plus.svg";
-import bookmarkIcon from "../../../public/icons/bookmark.svg";
-import bookmarkFillIcon from "../../../public/icons/bookmark-fill.svg";
-import pointerRightIcon from "../../../public/icons/pointer-right.svg";
-import tickIcon from "../../../public/icons/tick.svg";
-import listIcon from "../../../public/icons/list.svg";
+const categoryIcon = new URL("../../assets/icons/category.svg", import.meta.url)
+  .href;
+const servingsIcon = new URL("../../assets/icons/servings.svg", import.meta.url)
+  .href;
+const minusIcon = new URL("../../assets/icons/minus.svg", import.meta.url).href;
+const plusIcon = new URL("../../assets/icons/plus.svg", import.meta.url).href;
+const bookmarkIcon = new URL("../../assets/icons/bookmark.svg", import.meta.url)
+  .href;
+const bookmarkFillIcon = new URL(
+  "../../assets/icons/bookmark-fill.svg",
+  import.meta.url
+).href;
+const pointerRightIcon = new URL(
+  "../../assets/icons/pointer-right.svg",
+  import.meta.url
+).href;
+const tickIcon = new URL("../../assets/icons/tick.svg", import.meta.url).href;
+const listIcon = new URL("../../assets/icons/list.svg", import.meta.url).href;
 
 import View from "./view";
 
 class RecipeView extends View {
-  _parentElement = document.querySelector(".recipe");
   _errorMessage = "Recipe not found";
   _message = "Have fun!";
 
+  get _parentElement() {
+    return document.querySelector(".recipe");
+  }
+
   constructor() {
     super();
-    console.log(this._parentElement);
-     this.renderMessage();
+  }
+
+  init() {
+    if (this._parentElement) this.renderMessage();
   }
 
   addHandlerRender(handler) {

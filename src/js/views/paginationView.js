@@ -1,8 +1,11 @@
-// import icons from "../../../public/icons.svg";
-import arrowLeftIcon from "../../../public/icons/arrow-left.svg";
-import arrowRightIcon from "../../../public/icons/arrow-right.svg";
-
-// console.log("icons:", icons);
+const arrowLeftIcon = new URL(
+  "../../assets/icons/arrow-left.svg",
+  import.meta.url
+).href;
+const arrowRightIcon = new URL(
+  "../../assets/icons/arrow-right.svg",
+  import.meta.url
+).href;
 
 import View from "./view";
 
@@ -11,7 +14,9 @@ class PaginationView extends View {
     super();
   }
 
-  _parentElement = document.querySelector(".pagination");
+  get _parentElement() {
+    return document.querySelector(".pagination");
+  }
 
   _generateMarkup() {
     const curPage = this._data.page;

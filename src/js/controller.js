@@ -14,6 +14,10 @@ import * as model from "./model";
 //   module.hot.accept();
 // }
 
+RecipeView.init();
+ResultsView.init();
+MenuBtnView.init();
+
 async function controlRecipe() {
   try {
     const id = window.location.hash.slice(1);

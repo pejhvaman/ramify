@@ -1,21 +1,32 @@
 import View from "./view";
-import menuIcon from "/public/icons/arrow-three-line.svg";
+const menuIcon = new URL(
+  "../../assets/icons/arrow-three-line.svg",
+  import.meta.url
+).href;
+
+console.log(menuIcon);
 
 class MenuBtnView extends View {
-  _parentElement = document.querySelector(".menu-btn");
-  _listParentElement = document.querySelector(".search-results");
+  get _parentElement() {
+    return document.querySelector(".menu-btn");
+  }
+
+  get _listParentElement() {
+    return document.querySelector(".search-results");
+  }
 
   constructor() {
     super();
-    console.log(this._parentElement);
-    // if (!this._parentElement) return;
+  }
 
-    if (this._parentElement)
-      this._parentElement.innerHTML = `<svg class="recipe__info-icon">
+  init() {
+    if (this._parentElement && this._listParentElement) {
+      this._parentElement.innerHTML = `<svg class="menu-btn__icon">
               <use xlink:href="${menuIcon}"></use>
             </svg>`;
 
-    this._listParentElement?.classList.add("hidden");
+      this._listParentElement?.classList.add("hidden");
+    }
   }
 
   addHandlerToggleList(handler) {

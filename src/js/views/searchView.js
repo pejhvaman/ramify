@@ -1,8 +1,16 @@
 import View from "./view";
 
 class SearchView extends View {
-  _parentElement = document.querySelector(".search");
-  _searchField = document.querySelector(".search__field");
+  // _parentElement = document.querySelector(".search");
+  // _searchField = document.querySelector(".search__field");
+
+  get _parentElement() {
+    return document.querySelector(".search");
+  }
+
+  get _searchField() {
+    return document.querySelector(".search__field");
+  }
 
   constructor() {
     super();

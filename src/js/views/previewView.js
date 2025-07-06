@@ -5,6 +5,10 @@ class PreviewView extends View {
     super();
   }
 
+  get _parentElement() {
+    return document.querySelector(".bookmarks");
+  }
+
   _generateMarkup() {
     return this._data?.map(this._generatePreview).join("");
   }
