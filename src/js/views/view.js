@@ -87,7 +87,7 @@ class View {
   }
 
   _insertMarkup(markup) {
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+    this._parentElement?.insertAdjacentHTML("afterbegin", markup);
   }
 
   renderSpinner() {
