@@ -95,12 +95,6 @@
     @media only screen and (min-width: variables.$bp-small) {
       padding-left: 3rem;
     }
-
-    // @media only screen and (max-width: variables.$bp-medium) {
-    //   &::placeholder {
-    //     font-size: 1.2rem;
-    //   }
-    // }
   }
 
   &__btn {
@@ -109,11 +103,14 @@
     position: absolute;
     right: 0;
     height: 100%;
+    width: fit-content;
     padding-inline: 3rem;
+    display: flex;
   }
 
   &__icon {
     margin-top: 0 !important;
+    display: inline-block;
   }
 }
 
@@ -146,9 +143,9 @@
     cursor: pointer;
     transition: all 0.3s;
     padding: 0 1rem;
+    width: fit-content;
 
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
@@ -161,16 +158,13 @@
       height: 100%;
       width: 1.4rem;
       fill: variables.$color-primary;
-
-      // @media (min-width: 768px) {
-      //   width: 2rem;
-      //   margin-right: 1rem;
-      // }
+      display: inline-block;
     }
 
     span {
       text-wrap: nowrap;
       margin-top: 0.2rem;
+      display: inline-block;
     }
 
     &:focus {

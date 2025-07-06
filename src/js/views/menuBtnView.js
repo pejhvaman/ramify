@@ -25,7 +25,7 @@ class MenuBtnView extends View {
               <use xlink:href="${menuIcon}"></use>
             </svg>`;
 
-      this._listParentElement?.classList.add("hidden");
+      // this._listParentElement?.classList.add("hidden");
     }
   }
 
