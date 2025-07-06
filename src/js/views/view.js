@@ -83,6 +83,7 @@ class View {
   }
 
   _clear() {
+    if (!this._parentElement) return;
     this._parentElement.innerHTML = "";
   }
 
