@@ -18,10 +18,6 @@
   &:focus {
     outline: none;
   }
-
-  & > *:first-child {
-    margin-right: 1rem;
-  }
 }
 
 .btn {
@@ -38,7 +34,7 @@
     fill: currentColor;
     margin-top: 0.3rem;
     @media only screen and (max-width: variables.$bp-medium) {
-      display: none;
+      // display: none;
     }
   }
   @media only screen and (max-width: variables.$bp-medium) {
