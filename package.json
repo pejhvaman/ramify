@@ -2,6 +2,7 @@
   "name": "ramify",
   "version": "1.0.0",
   "description": "Recipe application",
+  "target": "index.html",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist --no-scope-hoist",
