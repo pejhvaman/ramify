@@ -1,6 +1,10 @@
 import View from "./view";
 
 class PreviewView extends View {
+  constructor() {
+    super();
+  }
+
   _generateMarkup() {
     return this._data?.map(this._generatePreview).join("");
   }

@@ -19,7 +19,7 @@ class RecipeView extends View {
   constructor() {
     super();
     console.log(this._parentElement);
-    if (this._parentElement) this.renderMessage();
+     this.renderMessage();
   }
 
   addHandlerRender(handler) {

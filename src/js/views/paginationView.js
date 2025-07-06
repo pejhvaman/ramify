@@ -7,6 +7,10 @@ import arrowRightIcon from "../../../public/icons/arrow-right.svg";
 import View from "./view";
 
 class PaginationView extends View {
+  constructor() {
+    super();
+  }
+
   _parentElement = document.querySelector(".pagination");
 
   _generateMarkup() {
