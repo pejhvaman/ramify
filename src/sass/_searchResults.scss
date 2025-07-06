@@ -9,8 +9,8 @@
   justify-items: flex-start;
   transition: all 0.3s ease;
 
-  @media only screen and (min-width: variables.$bp-large) {
-    display: flex;
+  @media only screen and (min-width: variables.$bp-medium) {
+    min-width: 30%;
   }
 }
 

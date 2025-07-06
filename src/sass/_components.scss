@@ -11,6 +11,10 @@
   align-items: center;
   transition: all 0.2s;
 
+  @media only screen and (min-width: variables.$bp-small) {
+    text-transform: none;
+  }
+
   &:hover {
     transform: scale(1.05);
   }
@@ -23,7 +27,7 @@
 .btn {
   @extend %btn;
 
-  padding: 1.5rem 4rem;
+  // padding: 1rem;
   font-size: 1.5rem;
   font-weight: 600;
   transition: all ease-in-out 0.3s;
@@ -37,10 +41,10 @@
       // display: none;
     }
   }
-  @media only screen and (max-width: variables.$bp-medium) {
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-  }
+  // @media only screen and (max-width: variables.$bp-medium) {
+  //   padding: 1rem 1.5rem;
+  //   font-size: 1rem;
+  // }
 }
 
 .btn--small {

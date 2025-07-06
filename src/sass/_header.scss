@@ -5,10 +5,15 @@
   display: flex;
   align-items: center;
   align-content: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: #ece8f7;
   height: fit-content;
-  padding: 2rem 0;
+  padding: 3rem 4rem;
+  gap: 1rem;
+
+  @media only screen and (max-width: variables.$bp-medium) {
+    padding: 2rem 3rem;
+  }
 
   &__logo {
     margin-left: 0 1rem;
@@ -18,10 +23,6 @@
     @media only screen and (max-width: variables.$bp-small) {
       display: none;
     }
-  }
-
-  @media only screen and (min-width: variables.$bp-medium) {
-    height: 10rem;
   }
 }
 
@@ -49,17 +50,19 @@
   display: flex;
   align-items: center;
   transition: all 0.3s;
-  width: 20rem;
+  // width: 20rem;
   position: relative;
   padding: 0.6rem 0;
+  flex-grow: 1;
 
   @media only screen and (min-width: variables.$bp-small) {
-    width: 40rem;
+    flex-grow: 0.8;
     padding: 1rem 0;
   }
+
   @media only screen and (min-width: variables.$bp-medium) {
-    padding: 1.2rem 0;
-    width: 48rem;
+    flex-grow: 0.6;
+    padding: 1.2rem;
   }
 
   &:focus-within {
@@ -78,40 +81,37 @@
 
     &::placeholder {
       text-transform: uppercase;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
+
+      @media only screen and (max-width: variables.$bp-small) {
+        opacity: 0;
+      }
     }
 
     &:focus {
       outline: none;
     }
-
-    @media only screen and (max-width: variables.$bp-small) {
-      padding-left: 1.5rem;
-      &::placeholder {
-        color: white;
-      }
-    }
-
-    @media only screen and (min-width: variables.$bp-small) {
-      padding-left: 3rem;
-    }
   }
 
   &__btn {
-    font-weight: 600;
+    font-weight: 400;
     font-family: inherit;
     position: absolute;
     right: 0;
     height: 100%;
-    padding-inline: 3rem;
+    padding-inline: 1.4rem;
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
-    // min-width: 10rem;
+    gap: 1rem;
+    text-transform: none;
+
+    @media only screen and (min-width: variables.$bp-small) {
+      padding-inline: 1.8rem;
+    }
 
     @media only screen and (min-width: variables.$bp-medium) {
-      min-width: 16rem;
-      padding-left: 3rem;
+      padding-inline: 2.5rem;
     }
   }
 
@@ -123,24 +123,25 @@
 
 .nav {
   height: 4rem;
-  display: flex;
-  justify-content: center;
-  width: fit-content;
+  border-radius: 100px;
+  background-color: variables.$color-grey-light-1;
 
-  @media only screen and (max-width: variables.$bp-medium) {
+  @media only screen and (min-width: variables.$bp-small) {
+    background-color: unset;
   }
 
   &__list {
     list-style: none;
-    display: flex;
     height: 100%;
   }
 
   &__item {
     position: relative;
+    height: 100%;
   }
 
   &__btn {
+    height: 100%;
     font-family: inherit;
     color: inherit;
     font-size: 1.4rem;
@@ -155,29 +156,19 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-
-    @media only screen and (max-width: variables.$bp-medium) {
-      // min-width: 10rem;
-      font-size: 1rem;
-      height: 4rem;
-      width: 4rem;
-      border-radius: 100%;
-      overflow: hidden;
-    }
-
-    @media only screen and (min-width: variables.$bp-medium) {
-      margin-left: 1rem;
-    }
-
-    &--bookmarks {
-      height: 100%;
-    }
+    padding: 1rem;
+    border-radius: 100px;
 
     svg {
-      height: 100%;
-      width: 1.4rem;
-      fill: variables.$color-primary;
       display: inline-block;
+      height: 2.2rem;
+      width: 2.2rem;
+      fill: variables.$color-primary;
+
+      @media only screen and (min-width: variables.$bp-small) {
+        height: 2.7rem;
+        width: 2.7rem;
+      }
     }
 
     span {
@@ -204,10 +195,9 @@
   position: absolute;
   right: 0;
   z-index: 10;
-  width: 20rem;
+  width: 30rem;
   background-color: #ffffff;
   box-shadow: 0 0.8rem 5rem 2rem rgba(variables.$color-grey-dark-1, 0.1);
-  width: 30rem;
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s 0.2s;
