@@ -17,17 +17,17 @@ class MenuBtnView extends View {
   }
 
   addHandlerToggleList(handler) {
-    this._parentElement.addEventListener("click", function () {
+    this._parentElement?.addEventListener("click", function () {
       handler();
     });
   }
 
   toggleList(display) {
     if (display === "show") {
-      this._listParentElement.classList.remove("hidden");
+      this._listParentElement?.classList.remove("hidden");
     }
     if (display === "hide") {
-      this._listParentElement.classList.add("hidden");
+      this._listParentElement?.classList.add("hidden");
     }
   }
 }

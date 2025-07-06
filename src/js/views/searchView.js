@@ -5,7 +5,7 @@ class SearchView extends View {
   _searchField = document.querySelector(".search__field");
 
   addHandlerSearch(handler) {
-    this._parentElement.addEventListener("submit", function (e) {
+    this._parentElement?.addEventListener("submit", function (e) {
       e.preventDefault();
       handler();
     });

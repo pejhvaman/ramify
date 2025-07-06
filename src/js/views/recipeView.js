@@ -29,7 +29,7 @@ class RecipeView extends View {
   }
 
   addHandlerUpdateServings(handler) {
-    this._parentElement.addEventListener("click", function (e) {
+    this._parentElement?.addEventListener("click", function (e) {
       const btnServings = e.target.closest(".btn__servings");
       if (!btnServings) return;
       const currentServings = +this.querySelector(".recipe__info-data--people")
@@ -48,7 +48,7 @@ class RecipeView extends View {
   }
 
   addHandlerBookmark(handler) {
-    this._parentElement.addEventListener("click", function (e) {
+    this._parentElement?.addEventListener("click", function (e) {
       const bookmarkBtn = e.target.closest(".btn__bookmark");
       if (!bookmarkBtn) return;
       handler();
