@@ -10,9 +10,11 @@ class MenuBtnView extends View {
     console.log(this._parentElement);
     // if (!this._parentElement) return;
 
-    this._parentElement.innerHTML = `<svg class="recipe__info-icon">
+    if (this._parentElement)
+      this._parentElement.innerHTML = `<svg class="recipe__info-icon">
               <use xlink:href="${menuIcon}"></use>
             </svg>`;
+
     this._listParentElement?.classList.add("hidden");
   }
 
