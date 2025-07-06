@@ -113,6 +113,10 @@
     @media only screen and (min-width: variables.$bp-medium) {
       padding-inline: 2.5rem;
     }
+
+    &--title {
+      display: inline-block;
+    }
   }
 
   &__icon {
@@ -171,7 +175,7 @@
       }
     }
 
-    span {
+    &--title {
       text-wrap: nowrap;
       margin-top: 0.2rem;
       display: inline-block;
